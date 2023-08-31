@@ -32,6 +32,8 @@ app.post("/api/notes", (req, res) => {
   });
 });
 
-app.listen(PORT, () =>
-  console.log(`Express server listening on port http://localhost:${PORT}!`)
-);
+// app.listen(PORT, () =>
+//   console.log(`Express server listening on port http://localhost:${PORT}!`)
+// );
+
+app.listen(process.env.PORT || 3001);
