@@ -18,6 +18,10 @@ The way you can best build this is to install node.js and express 4.16.4
 
 You can test the application by opening up the project: DT_Note_Taker and enter "Node server" within the terminal.
 
+## Heroku Link:
+
+Heroku Link: https://dt-note-taker-42842b99ba10.herokuapp.com/
+
 ## Resources
 
 GET and POST Method in Express JS: https://www.youtube.com/watch?v=urg-a6i0HEc&t=438s <br>
