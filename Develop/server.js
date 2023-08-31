@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const reviews = require("./db/db.json");
 
 const PORT = 3001;
 const app = express();
@@ -17,13 +18,18 @@ app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/notes.html"))
 );
 
-// GET request for reviews
-app.get("/api/db", (req, res) => {
-  // Send a message to the client
-  res.status(200).json(`${req.method} request received to get reviews`);
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "/public/index.html"))
+);
 
-  // Log our request to the terminal
-  console.info(`${req.method} request received to get reviews`);
+app.post("/api/notes", (req, res) => {
+  console.info(`${req.method} request received to add a review`);
+  console.info(req.body);
+  const { title, text } = req.body;
+
+  fs.writeFile("./db/db.json", JSON.stringify(req.body), (err) => {
+    if (err) console.log(err);
+  });
 });
 
 app.listen(PORT, () =>
